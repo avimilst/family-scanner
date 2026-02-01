@@ -1,5 +1,6 @@
 // API Configuration
-// Change this to your production API URL when deploying
+// Production Worker URL
+export const WORKER_URL = 'https://family-scanner.avimilst.workers.dev';
 
 // For local development with Expo Go:
 // - iOS Simulator: use 'http://localhost:3000/api'
@@ -8,8 +9,11 @@
 
 import Constants from 'expo-constants';
 
-// Default to localhost, override in app.json extra config for different environments
-export const API_BASE_URL = Constants.expoConfig?.extra?.apiUrl || 'http://localhost:3000/api';
+// Use Worker URL in production, localhost for development
+const isDevelopment = __DEV__;
+export const API_BASE_URL = isDevelopment
+  ? (Constants.expoConfig?.extra?.apiUrl || 'http://localhost:3000/api')
+  : `${WORKER_URL}/api`;
 
 export const ENDPOINTS = {
   // Content endpoints
