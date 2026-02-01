@@ -1,0 +1,20 @@
+# Cloudflare Worker Configuration for Family Scanner
+#
+# Before deploying, you need to:
+# 1. Create a KV namespace: wrangler kv:namespace create "SCAN_CACHE"
+# 2. Add your Claude API key as a secret: wrangler secret put ANTHROPIC_API_KEY
+# 3. Update the kv_namespaces id below with your actual namespace ID
+
+name = "family-scanner"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Uncomment and update with your KV namespace ID after creating it
+# [[kv_namespaces]]
+# binding = "SCAN_CACHE"
+# id = "your-kv-namespace-id-here"
+
+# The route for your worker (if using custom domain)
+# routes = [
+#   { pattern = "api.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
