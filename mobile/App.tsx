@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import {
   StyleSheet,
@@ -8,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   ActivityIndicator,
+  SafeAreaView,
 } from 'react-native';
 
 const API_URL = 'https://family-scanner.avimilst.workers.dev';
@@ -62,9 +62,7 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Family Scanner</Text>
       <Text style={styles.subtitle}>We Scan. You Decide.</Text>
 
@@ -134,7 +132,7 @@ export default function App() {
           )}
         </ScrollView>
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 
